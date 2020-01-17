@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>timezone-timestamp</title>
+<script src="timezone_timestamp.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+
+var key = '';
+
+tzts.callback = function (data) {
+  console.log(data);
+  init();
+};
+tzts.initData(key);
+
+function init() {
+  // var t = tzts.timestamp('Asia/Tokyo', new Date('2020-01-20 14:00:00').getTime());
+  var t = tzts.timestamp('Asia/Taipei', new Date().getTime());
+  // var t = tzts.timestamp('America/Santiago', new Date().getTime(), true);
+  console.log(t);
+
+  var options = {
+      timeZone: 'Asia/Tokyo',
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+  };
+  formatter = new Intl.DateTimeFormat([], options);
+  console.log(formatter.format(new Date(t)));
+
+  var options = {
+      timeZone: 'America/Santiago',
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+  };
+  formatter = new Intl.DateTimeFormat([], options);
+  console.log(formatter.format(new Date(t)));
+
+  var options = {
+      timeZone: 'Asia/Taipei',
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+  };
+  formatter = new Intl.DateTimeFormat([], options);
+  console.log(formatter.format(new Date(t)));
+
+  var options = {
+      timeZone: 'America/Santiago',
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+  };
+  formatter = new Intl.DateTimeFormat([], options);
+  console.log(formatter.format(new Date(t)));
+
+  var options = {
+      timeZone: 'America/Los_Angeles',
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+  };
+  formatter = new Intl.DateTimeFormat([], options);
+  console.log(formatter.format(new Date(t)));
+
+  var options = {
+      timeZone: 'America/New_York',
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+  };
+  formatter = new Intl.DateTimeFormat([], options);
+  console.log(formatter.format(new Date(t)));
+}
+
+</script>
+</html>
