@@ -64,6 +64,12 @@
       ts = ts + currentTimeZoneOffset - targetTimeZoneOffset - dst;
       return ts;
     },
+    'timestampOffset': function (ts, offset) {
+      var currentTimeZoneOffset = (0 - (new Date().getTimezoneOffset())/60)*60*60*1000,
+        targetTimeZoneOffset = offset*60*60*1000;
+      ts = ts + currentTimeZoneOffset - targetTimeZoneOffset;
+      return ts;
+    },
     'countryCode': function () {
       var timezoneData = window.timezoneData || JSON.parse(localStorage.getItem('tzts_timezone')),
         tmpObj = {};

@@ -21,9 +21,12 @@ tzts.initData(key);
 
 function init() {
   // var t = tzts.timestamp('Asia/Tokyo', new Date('2020-01-20 14:00:00').getTime());
-  var t = tzts.timestamp('Asia/Taipei', new Date().getTime());
+  var t = tzts.timestamp('Asia/Tokyo', new Date().getTime());
   // var t = tzts.timestamp('America/Santiago', new Date().getTime(), true);
+  var to = tzts.timestampOffset(new Date().getTime(), 9);
   console.log(t);
+  console.log(to);
+  console.log('taipei', new Date(to));
 
   var options = {
       timeZone: 'Asia/Tokyo',
@@ -31,7 +34,15 @@ function init() {
       hour: 'numeric', minute: 'numeric', second: 'numeric',
   };
   formatter = new Intl.DateTimeFormat([], options);
-  console.log(formatter.format(new Date(t)));
+  console.log('Asia/Tokyo', formatter.format(new Date(to)));
+
+var options = {
+      timeZone: 'Asia/Tokyo',
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+  };
+  formatter = new Intl.DateTimeFormat([], options);
+  console.log('Asia/Tokyo', formatter.format(new Date(t)));
 
   var options = {
       timeZone: 'America/Santiago',
@@ -39,7 +50,7 @@ function init() {
       hour: 'numeric', minute: 'numeric', second: 'numeric',
   };
   formatter = new Intl.DateTimeFormat([], options);
-  console.log(formatter.format(new Date(t)));
+  console.log('America/Santiago', formatter.format(new Date(t)));
 
   var options = {
       timeZone: 'Asia/Taipei',
@@ -47,15 +58,7 @@ function init() {
       hour: 'numeric', minute: 'numeric', second: 'numeric',
   };
   formatter = new Intl.DateTimeFormat([], options);
-  console.log(formatter.format(new Date(t)));
-
-  var options = {
-      timeZone: 'America/Santiago',
-      year: 'numeric', month: 'numeric', day: 'numeric',
-      hour: 'numeric', minute: 'numeric', second: 'numeric',
-  };
-  formatter = new Intl.DateTimeFormat([], options);
-  console.log(formatter.format(new Date(t)));
+  console.log('Asia/Taipei', formatter.format(new Date(t)));
 
   var options = {
       timeZone: 'America/Los_Angeles',
@@ -63,7 +66,7 @@ function init() {
       hour: 'numeric', minute: 'numeric', second: 'numeric',
   };
   formatter = new Intl.DateTimeFormat([], options);
-  console.log(formatter.format(new Date(t)));
+  console.log('America/Los_Angeles', formatter.format(new Date(t)));
 
   var options = {
       timeZone: 'America/New_York',
@@ -71,7 +74,7 @@ function init() {
       hour: 'numeric', minute: 'numeric', second: 'numeric',
   };
   formatter = new Intl.DateTimeFormat([], options);
-  console.log(formatter.format(new Date(t)));
+  console.log('America/New_York', formatter.format(new Date(t)));
 }
 
 </script>
