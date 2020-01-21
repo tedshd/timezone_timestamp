@@ -8,10 +8,14 @@
 (function() {
 
   var tzts = {
-    'initData': function (key) {
-      if (!key) {
+    'initData': function (arg) {
+      if (!arg.key) {
         console.error('timezone_timestamp: key not set');
         return;
+      }
+      var update;
+      if (!arg.update) {
+        update = 24;
       }
 
       var timezoneData = JSON.parse(localStorage.getItem('tzts_timezone')),
@@ -21,7 +25,7 @@
 
       if (!expire || !timezoneData) {
         var script = document.createElement('script');
-        script.src = 'https://api.timezonedb.com/v2.1/list-time-zone?key=' + key + '&format=json&fields=countryCode,countryName,zoneName,gmtOffset,dst&callback=tzts.response';
+        script.src = 'https://api.timezonedb.com/v2.1/list-time-zone?key=' + arg.key + '&format=json&fields=countryCode,countryName,zoneName,gmtOffset,dst&callback=tzts.response';
         document.querySelector('head').appendChild(script);
       } else {
           this.callback(timezoneData);
@@ -39,7 +43,7 @@
       cookieControl('set', {
         name: 'tzts_expire',
         value: '1',
-        expiredTime: 24*60*60
+        expiredTime: update*60*60
       });
       this.callback(timezoneData);
       window.timezoneData = timezoneData;

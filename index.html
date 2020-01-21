@@ -17,7 +17,10 @@ tzts.callback = function (data) {
   console.log(data);
   init();
 };
-tzts.initData(key);
+tzts.initData({
+  key: key,
+  updateHours: 24
+});
 
 function init() {
   // var t = tzts.timestamp('Asia/Tokyo', new Date('2020-01-20 14:00:00').getTime());
