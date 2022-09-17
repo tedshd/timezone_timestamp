@@ -6,6 +6,7 @@
  */
 
 (function() {
+  var update;
 
   var tzts = {
     'initData': function (arg) {
@@ -13,9 +14,10 @@
         console.error('timezone_timestamp: key not set');
         return;
       }
-      var update;
       if (!arg.update) {
         update = 24;
+      } else {
+        update = arg.update;
       }
 
       var timezoneData = JSON.parse(localStorage.getItem('tzts_timezone')),
