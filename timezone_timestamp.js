@@ -30,7 +30,7 @@
         script.src = 'https://api.timezonedb.com/v2.1/list-time-zone?key=' + arg.key + '&format=json&fields=countryCode,countryName,zoneName,gmtOffset,dst&callback=tzts.response';
         document.querySelector('head').appendChild(script);
       } else {
-          this.callback(timezoneData);
+          this.response(timezoneData);
           window.timezoneData = timezoneData;
       }
     },
@@ -47,7 +47,7 @@
         value: '1',
         expiredTime: update*60*60
       });
-      this.callback(timezoneData);
+      this.response(timezoneData);
       window.timezoneData = timezoneData;
 
       function timezoneMapInit(data) {

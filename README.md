@@ -13,7 +13,7 @@ Expire 1 day and call api and then save to localstorage again
 
 ### Method
 
-* callback(data)
+* response(data)
 
   * data: timezoneDB response data
 
@@ -45,14 +45,14 @@ Show all support country code
 
 ### Usage
 
-Need define `tzts.callback` handle `initData` callback
+Need define `tzts.response` handle `initData` callback
 
 Must use `tzts.initData` set call timezone data
 
 ```JavaScript
 var key = '';
 
-tzts.callback = function (data) {
+tzts.response = function (data) {
   console.log(data);
   init();
 };
