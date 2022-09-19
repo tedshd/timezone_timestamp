@@ -52,7 +52,7 @@ Must use `tzts.initData` set call timezone data
 ```JavaScript
 var key = '';
 
-tzts.response = function (data) {
+tzts.callback = function (data) {
   console.log(data);
   init();
 };
